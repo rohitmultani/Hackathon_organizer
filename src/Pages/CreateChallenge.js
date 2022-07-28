@@ -43,12 +43,14 @@ const submitHandler = () => {
     const uuid= uid();
     
     setD(refD(db,`/${uuid}`),{
+            uuid,
             name,
             description,
             startDate,
             endDate,
             level,
-            image
+            image,
+            newStatus:'Upcoming'
     })
     console.log(name)
     console.log(description)
