@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const AiChallenges=()=> {
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%'}}>
         <Typography variant="h4" sx={{textAlign:'center',m:2}}>Why Participate in <span style={{color:"green"}}> AI Challenges?</span></Typography>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{m:4}}>
         <Grid item xs={12} md={6}>

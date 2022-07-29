@@ -18,10 +18,10 @@ const HomeSlide=()=> {
             </Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <CardContent sx={{ flex: '1 0 auto' ,width:'51vw',m:{md:4,sm:0},color:'white'}}>
-          <Typography component="div" variant="h2">
+          <Typography component="div" variant="h4">
             Accelerate Innovation
           </Typography>
-          <Typography component="div" variant="h3">
+          <Typography component="div" variant="h4">
             with Global AL Challenges
           </Typography>
           <Typography variant="subtitle1" component="div" sx={{mt:1}}>

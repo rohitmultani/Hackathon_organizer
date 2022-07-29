@@ -13,12 +13,18 @@ import {Link} from 'react-router-dom';
 import { db } from "../../Firebase";
 import { uid } from "uid";
 import { set as setD, ref as refD, update } from "firebase/database";
+import { useDispatch } from "react-redux"
+import { upDate } from "../../Utils/Store";
 const HackathonCard = (props) => {
   const [start, setStart] = useState(false);
   const [end, setEnd] = useState(false);
   const [status, setStatus] = useState(props.value.newStatus);
   const d1 = new Date(props.value.startDate);
   const d2 = new Date(props.value.endDate);
+  const dispatch = useDispatch();
+  const updateHandler = ()=>{
+dispatch(upDate(props.value))
+  }
   const Completionist = () => <Countdown date={d2} renderer={rendererAgain} />;
   const Completion = () => <span>{props.value.endDate}</span>;
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -99,15 +105,17 @@ const HackathonCard = (props) => {
           <Countdown date={d1} renderer={renderer} />
           {/* <Countdown date={d2} /> */}
         </Typography>
+        <Link to={`/${props.value.uuid}`} style={{textDecoration:'none',color:'white'}}>
         <Button
           variant="contained"
           sx={{ backgroundColor: "#44924C", color: "white" }}
+          onClick={updateHandler}
         >
-           <Link to={`/${props.value.uuid}`} style={{textDecoration:'none',color:'white'}}>
-          <TaskAltIcon sx={{ m: 1 }} />
+          <TaskAltIcon sx={{ m:1 }} />
+
           Participate Now
-          </Link>
         </Button>
+          </Link>
       </CardContent>
       <CardActions sx={{ textAlign: "center" }}></CardActions>
     </Card>
