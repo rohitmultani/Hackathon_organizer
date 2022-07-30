@@ -20,7 +20,6 @@ const dataSlice = createSlice({
   initialState: {},
   reducers: {
     upDate(state, action) {
-      // state.push(action.payload);
       state.data = action.payload;
     },
   },

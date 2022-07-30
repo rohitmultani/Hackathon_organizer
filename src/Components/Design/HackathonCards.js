@@ -6,13 +6,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import people from "../../Images/people.svg";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import Countdown from "react-countdown";
 import {Link} from 'react-router-dom';
 import { db } from "../../Firebase";
-import { uid } from "uid";
-import { set as setD, ref as refD, update } from "firebase/database";
+import { ref as refD, update } from "firebase/database";
 import { useDispatch } from "react-redux"
 import { upDate } from "../../Utils/Store";
 const HackathonCard = (props) => {
@@ -62,15 +60,12 @@ dispatch(upDate(props.value))
   };
   useEffect(() => {   
     statusUpdate();
-
-    // },[status])
   }, [status]);
   function statusUpdate() {
     setTimeout(() => {
       update(refD(db, `/${props.value.uuid}`), {
         newStatus: status,
       });
-      // },1000)
     }, 1000);
   }
   return (
@@ -103,7 +98,6 @@ dispatch(upDate(props.value))
         </Typography>
         <Typography sx={{ m: 1 }}>
           <Countdown date={d1} renderer={renderer} />
-          {/* <Countdown date={d2} /> */}
         </Typography>
         <Link to={`/${props.value.uuid}`} style={{textDecoration:'none',color:'white'}}>
         <Button

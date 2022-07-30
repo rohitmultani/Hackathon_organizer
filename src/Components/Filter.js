@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Box, Menu, Typography } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
+import { Box, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTheme } from "@mui/material/styles";
@@ -78,6 +78,7 @@ const Filter = () => {
   const dispatch = useDispatch();
   const [personName, setPersonName] = useState([]);
   const [selected, setSelected] = useState([]);
+  const [sort, setSort] = useState();
   const data = useSelector((state) => state.Notes);
   const dataFetched = useSelector((state) => state.data);
   const searchHandler = (e) => {
@@ -100,6 +101,12 @@ const Filter = () => {
     console.log(dataFetched)
   };
 
+  const sortHandler =(event)=>{
+    console.log(event.target.value)
+    setSort(event.target.value)
+    dispatch(upDateName("Sort"));
+    dispatch(upDateData(event.target.value));
+  }
   const statusEditor = (event)=>{
     console.log(event.target.value)
     dispatch(upDateName("Status"));
@@ -108,7 +115,7 @@ const Filter = () => {
     dispatch(upDateName("Level"));
   }
   return (
-    <Box sx={{ backgroundColor: "#002A3B", height: "50vh" }}>
+    <Box sx={{ backgroundColor: "#002A3B", height: "75vh" }}>
       <Typography
         variant="h4"
         sx={{ color: "#ffffff", textAlign: "center", pt: 3 }}
@@ -198,6 +205,22 @@ const Filter = () => {
         </FormControl>
       </Box>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+        <FormControl sx={{backgroundColor:'white',width:200,m:3,borderRadius:2}}>
+    <InputLabel id="demo-simple-select-label">Sort</InputLabel>
+    <Select
+      labelId="demo-simple-select-label"
+      id="demo-simple-select"
+      value={sort}
+      label="Sort"
+      onChange={sortHandler}
+    >
+      <MenuItem value={"Old"}>Oldest First</MenuItem>
+      <MenuItem value={"New"}>Newest First</MenuItem>
+      
+    </Select>
+  </FormControl>
+  
+      </Box>
     {!(selected===[])?(selected.map((value) => (
           <Chip
             key={value}
@@ -206,7 +229,6 @@ const Filter = () => {
           />
         ))):(<div></div>)}   
       </Box>
-    </Box>
   );
 };
 export default Filter;

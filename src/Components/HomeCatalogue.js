@@ -15,7 +15,7 @@ const HomeCatalogue = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection:{xs:'column',md:'row'},
+          flexDirection: { xs: "column", md: "row" },
           border: (theme) => `1px solid ${theme.palette.divider}`,
 
           bgcolor: "#002A3B",
@@ -28,46 +28,51 @@ const HomeCatalogue = () => {
           },
         }}
       >
-        {/* <Typography component="div" variant="h5"> */}
         <CardMedia
-          sx={{ width: 50, height: 50,m:4}}
+          sx={{ width: 50, height: 50, m: 4 }}
           image={AI}
           alt="Live from space album cover"
         />
-        <Typography sx={{m:2}}>
+        <Typography sx={{ m: 2 }}>
           100K+
           <Typography>AL model submissions</Typography>
         </Typography>
-        {/* </Typography> */}
+
         <Divider
           orientation="vertical"
           variant="middle"
           flexItem
-          sx={{ backgroundColor: "white",display:{xs:'none',md:'block'} }}
+          sx={{
+            backgroundColor: "white",
+            display: { xs: "none", md: "block" },
+          }}
         />
         <CardMedia
-          sx={{ width: 50, height: 50,m:4}}
+          sx={{ width: 50, height: 50, m: 4 }}
           image={Icon}
           alt="Live from space album cover"
         />
-    <Typography sx={{m:2}}>
+        <Typography sx={{ m: 2 }}>
           50K+
           <Typography>Data Scientists</Typography>
         </Typography>
-        
+
         <Divider
           orientation="vertical"
           variant="middle"
           flexItem
-          sx={{ backgroundColor: "white",display:{xs:'none',md:'block'} }}
+          sx={{
+            backgroundColor: "white",
+            display: { xs: "none", md: "block" },
+          }}
         />
         <CardMedia
-          sx={{ width: 50, height: 50,m:2 }}
+          sx={{ width: 50, height: 50, m: 2 }}
           image={people}
           alt="Live from space album cover"
         />
-        
-        <Typography sx={{m:2}}>
+
+        <Typography sx={{ m: 2 }}>
           100+
           <Typography>Al Challenges hosted</Typography>
         </Typography>

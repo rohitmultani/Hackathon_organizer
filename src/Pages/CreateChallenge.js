@@ -3,15 +3,14 @@ import { Box, Button, Typography } from "@mui/material";
 import { Fragment } from "react"
 import TextField from '@mui/material/TextField';
 import NavBar from "../Components/NavBar";
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import {db} from '../Firebase';
-import { upDate } from "../Utils/Store";
 import {uid} from "uid";
+import { upDate } from "../Utils/Store";
 import {storage} from "../Firebase"
 import {
     ref,
@@ -59,19 +58,22 @@ const submitHandler = () => {
             image,
             newStatus:'Upcoming'
     })
-   
+    setName(" ");
+    setDescription(" ");
+    setLevel(" ");
+    setStartDate(" ");
+    setEndDate(" ");
 };
 useEffect(() => {
-    if (data.data!==[]) {
-        console.log(data)
+    if (Object.keys(data).length!==0) {
+        
         setToUpdate(true)
       setName(data.data.name);
       setDescription(data.data.description);
       setLevel(data.data.level);
       setStartDate(data.data.startDate.split(" ").join("T"));
       setEndDate(data.data.endDate.split(" ").join("T"));
-          
-      // setIsEdit(true)
+
     }
   }, [data]);
   const updateHandler = () => {
@@ -88,29 +90,21 @@ useEffect(() => {
         image,
       uuid: data.data.uuid,
     });
-    // dispatch(upDate([]));    
-    setName("");
-    setDescription("");
-    setLevel("");
-    setStartDate("");
-    setEndDate("");
-    //   setIsEdit(false);
-    // console.log(blogs[1]);
+    dispatch(upDate([]));
+    setName(" ");
+    setDescription(" ");
+    setLevel(" ");
+    setStartDate(" ");
+    setEndDate(" ");
   };
 const imageUpload = (e)=>{
-    // console.log(e.target.files[0])
+
     const uuid= uid();
     const storageRef = ref(storage,`/files/${uuid}`)
     const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
     uploadTask.on(
         "state_changed",
-        (snapshot) => {
-            const percent = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-
-            // update progress
-            // setPercent(percent);
+        (snapshot) => {  
         },
         (err) => console.log(err),
         () => {
@@ -164,10 +158,11 @@ const imageUpload = (e)=>{
       </FormControl>
             </Box>
             <Link to="/" style={{textDecoration:'none'}}>
-      <Button variant="contained" sx={{width:{xs:'100vw',md:'30vw'},m:{xs:0,md:2},backgroundColor:'#44924C',color:'white'}} onClick={submitHandler}> Save Changes</Button>
+              {image?(<Button variant="contained" sx={{width:{xs:'100vw',md:'30vw'},m:{xs:0,md:2},backgroundColor:'#44924C',color:'white'}} onClick={submitHandler}> Save Changes</Button>):(<span></span>)}
+      
       </Link>
       {
-        upTodate?(
+        (upTodate&&image)?(
             <Link to="/" style={{textDecoration:'none'}}>
             <Button variant="contained" sx={{width:{xs:'100vw',md:'30vw'},m:{xs:0,md:2},backgroundColor:'#44924C',color:'white'}} onClick={updateHandler}> Update Changes</Button></Link>
         ):(<div></div>)
