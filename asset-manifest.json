@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Hackathon_organizer/static/css/main.073c9b0a.css",
+    "main.js": "/Hackathon_organizer/static/js/main.e92ac30f.js",
+    "static/media/rocket1.svg": "/Hackathon_organizer/static/media/rocket1.9a6fb5c2eb8050d07337d64e4df7c934.svg",
+    "static/media/Logo.svg": "/Hackathon_organizer/static/media/Logo.6c4778669314879156c9d6b7c312651a.svg",
+    "static/media/Icon2.svg": "/Hackathon_organizer/static/media/Icon2.61657b14fc244009282f62fcd9ad7b42.svg",
+    "static/media/people.svg": "/Hackathon_organizer/static/media/people.c9d4654cbc2f6a861916c98150c3de03.svg",
+    "static/media/Vector.svg": "/Hackathon_organizer/static/media/Vector.6f92b6033494a4b6b22d023239d802f8.svg",
+    "static/media/Robot.svg": "/Hackathon_organizer/static/media/Robot.459beba5794a56415ceffc3155da8bd1.svg",
+    "static/media/AI.svg": "/Hackathon_organizer/static/media/AI.5689f05507f9881cd46df8fa85fb6661.svg",
+    "static/media/notebook.svg": "/Hackathon_organizer/static/media/notebook.85f4cfac6336f1d07eddab99d8df0b3a.svg",
+    "index.html": "/Hackathon_organizer/index.html",
+    "static/media/easy.svg": "/Hackathon_organizer/static/media/easy.fe788e2c23812734a61f5b46572ace10.svg",
+    "main.073c9b0a.css.map": "/Hackathon_organizer/static/css/main.073c9b0a.css.map",
+    "main.e92ac30f.js.map": "/Hackathon_organizer/static/js/main.e92ac30f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.e92ac30f.js"
+  ]
+}
