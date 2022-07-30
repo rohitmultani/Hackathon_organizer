@@ -84,7 +84,6 @@ const Filter = () => {
   const searchHandler = (e) => {
     dispatch(upDateData(e.target.value));
     dispatch(upDateName("Search"));
-    console.log(data)
   };
   const handleChange = (event) => {
     const {
@@ -96,19 +95,14 @@ const Filter = () => {
     );
     dispatch(upDateData(event.target.value));
    
-    console.log(event.target.value);
-    console.log(data)
-    console.log(dataFetched)
   };
 
   const sortHandler =(event)=>{
-    console.log(event.target.value)
     setSort(event.target.value)
     dispatch(upDateName("Sort"));
     dispatch(upDateData(event.target.value));
   }
   const statusEditor = (event)=>{
-    console.log(event.target.value)
     dispatch(upDateName("Status"));
   }
   const levelEditor=()=>{
@@ -164,7 +158,6 @@ const Filter = () => {
                   />
                 ))}
               </Box>;
-              console.log(e,"patani")
               setSelected(e);
             }}
 

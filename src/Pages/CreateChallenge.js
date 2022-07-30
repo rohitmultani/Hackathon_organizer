@@ -38,12 +38,12 @@ const CreateChallenge=()=>{
     const startDateHandler =(e)=>{
  temp1=e.target.value.split('T').join(' ');
  setStartDate(temp1);
- console.log(temp1)
+ 
   } 
   const endDateHandler =(e)=>{
     temp1=e.target.value.split('T').join(' ');
     setEndDate(temp1);
-    console.log(temp1)
+    
 } 
 const submitHandler = () => {
     const uuid= uid();

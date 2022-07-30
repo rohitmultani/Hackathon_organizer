@@ -30,8 +30,8 @@ const DisplayCards = () => {
       setTimeout(() => {
         getFilter();
       }, 1000);
-      console.log("ks");
-      console.log(data.name);
+      
+      
     } else {
       isMounted.current = true;
     }
@@ -40,7 +40,7 @@ const DisplayCards = () => {
     if (data.name === "Sort" && data.data === "Old") {
       const sortByDate = (updatedCard) => {
         const sorter = (a, b) => {
-          console.log(a, b);
+        
           return (
             new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
           );
@@ -51,7 +51,7 @@ const DisplayCards = () => {
     } else if (data.name === "Sort" && data.data === "New") {
       const sortByDate = (updatedCard) => {
         const sorter = (a, b) => {
-          console.log(a, b);
+        
           return (
             new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
           );
@@ -83,7 +83,7 @@ const DisplayCards = () => {
 
           case "Search":
             if (item.name.includes(data.data)) {
-              console.log("found");
+            
               return item;
             }
 
